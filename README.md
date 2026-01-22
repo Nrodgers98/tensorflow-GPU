@@ -17,7 +17,7 @@ A containerized TensorFlow AI/ML development environment with NVIDIA GPU support
 And much more - the underlying docker container is a lightly customized version of NVIDIA's official TensorFlow 24.06 container. For full details see:
 
 - George's TensorFlow 2.16 container on DockerHub: [gperdrizet/tensorflow-gpu](https://hub.docker.com/r/gperdrizet/tensorflow-gpu)
-- NVIDIA's [TensorFlow Release 24.06](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel-24-06.html)
+- NVIDIA's [TensorFlow Release 24.06 container](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel-24-06.html)
 
 The container needs Docker and a compatible NVIDIA driver installed to run. It should support NVIDIA GPUs back to Pascal on both Windows and Linux (MacOS users should be able to run it without GPU support - see below). 
 
