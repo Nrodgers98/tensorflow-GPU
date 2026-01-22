@@ -80,14 +80,14 @@ Full installation documentation here: [Install Docker Desktop on Windows](https:
 
 For Linux set-up instructions, refer to [Install Docker Desktop on Linux](https://docs.docker.com/desktop/setup/install/linux).
 
-> **Note for GPU support:** To use GPU acceleration on Windows, you'll need an NVIDIA GPU with updated drivers and the [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+> **Note for GPU support:** To use GPU acceleration on Linux, you'll need an NVIDIA GPU with updated drivers and the [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
-### macOS
+### MacOS
 
 Apple dropped NVIDIA support around 2014, but you can still use this container to run TensorFlow on CPU only. See full docker setup documentation here: [Install Docker Desktop on Mac](https://docs.docker.com/desktop/setup/install/mac-install)
 
 1. **Check system requirements**
-   - macOS 14 (Sonoma) or newer
+   - MacOS 14 (Sonoma) or newer
    - At least 4 GB of RAM
 
 2. **Download Docker Desktop**
@@ -114,11 +114,13 @@ Apple dropped NVIDIA support around 2014, but you can still use this container t
 
     The command should complete without error.
 
-> **Note:** macOS does not support NVIDIA GPU passthrough. TensorFlow will run in CPU mode on Mac.
+> **Note:** Current Apple hardware does not use NVIDIA GPUs. Using this setup, TensorFlow will run in CPU only mode on MacOS. If you are feeling brave, you can run TensorFlow on Apple Silicon GPUs - see here: [Get started with tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin). But that's a whole other ball of wax...
 
 ---
 
 ## Getting started
+
+Once you have a current NVIDIA driver (>=545) and Docker with GPU support. Starting a CUDA/TensorFlow development envronment from this repository is easy. Use it like a template to start new projects:
 
 1. **Fork this repository** to create your own copy:
    - Click the **"Fork"** button in the top-right corner of this repository's GitHub page
@@ -126,28 +128,31 @@ Apple dropped NVIDIA support around 2014, but you can still use this container t
    - This creates your own copy where you can save your work and push changes
 
 2. **Clone your forked repository:**
+
+   On your local machine run:
+   
    ```bash
    git clone https://github.com/<your-username>/tensorflow-GPU.git
    cd tensorflow-GPU
    ```
    > Replace `<your-username>` with your GitHub username
 
-3. **Open the folder in VS Code:**
+4. **Open the folder in VS Code:**
    ```bash
    code .
    ```
 
-4. **Launch the dev container:**
+5. **Launch the dev container:**
    - When prompted, click **"Reopen in Container"**
    - Or press `F1` → Type "Dev Containers: Reopen in Container" → Press Enter
 
-5. **Wait for the container to build** (this may take a few minutes on first run)
+6. **Wait for the container to build** (this may take a few minutes on first run)
 
-6. **Start coding!** Open and run `notebooks/test.ipynb` to verify your environment is working.
+7. **Start coding!** Open and run `notebooks/test.ipynb` to verify your environment is working.
 
 ### Keeping Your Fork Updated
 
-To sync your fork with the latest changes from the original repository:
+To sync your fork with the latest changes from this original repository:
 
 ```bash
 # Add the original repo as an upstream remote (only needed once)
@@ -164,5 +169,5 @@ git merge upstream/main
 
 - **Docker not starting:** Ensure virtualization is enabled in your BIOS settings
 - **Permission denied errors on Linux:** Make sure you've added your user to the docker group and logged out/in
-- **GPU not detected:** Verify NVIDIA drivers and Container Toolkit are properly installed
+- **GPU not detected:** Verify NVIDIA drivers and Container Toolkit (if needed) are properly installed
 - **Container build fails:** Ensure you have a stable internet connection for downloading the TensorFlow image
