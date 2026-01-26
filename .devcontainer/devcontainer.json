@@ -56,6 +56,5 @@
 	"postCreateCommand": "mkdir -p logs",
 
 	// Use 'postAttachCommand' to run commands each time a user connects to the container
-	"postAttachCommand": "tensorboard --logdir=logs"
-
+	"postAttachCommand": "screen -dmS tensorboard tensorboard --logdir=logs"
 }
