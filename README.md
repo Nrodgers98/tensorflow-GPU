@@ -73,17 +73,36 @@ Check your GPU's compute capability: [NVIDIA CUDA GPUs](https://developer.nvidia
 
 5. **Verify** by running `notebooks/environment_test.ipynb`
 
-## TensorBoard
+## Using as a template for new projects
 
-To launch TensorBoard:
+You can use your fork as a template to quickly create new deep learning projects:
 
-1. Open the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
-2. Run **Python: Launch TensorBoard**
-3. Select the `logs/` directory when prompted
+### One-time setup: Make your fork a template
 
-TensorBoard will open in a new tab within VS Code. Place your training logs in the `logs/` directory.
+1. Go to your fork on GitHub
+2. Click **Settings** → scroll to **Template repository**
+3. Check the box to enable it
 
-## Adding Python rackages
+### Creating a new project from your template
+
+1. Go to your fork on GitHub
+2. Click the green **Use this template** button → **Create a new repository**
+3. Enter your new repository name and settings
+4. Click **Create repository**
+5. **Clone** your new repository:
+   ```bash
+   git clone https://github.com/<your-username>/my-new-project.git
+   ```
+6. **Clean up** (optional): Remove the example notebooks, then add your own code:
+   ```bash
+   rm -rf notebooks/*.ipynb
+   git add -A && git commit -m "Initial project setup"
+   git push
+   ```
+
+Now you have a fresh deep learning GPU project with the dev container configuration ready to go!
+
+## Adding Python packages
 
 ### Using pip directly
 
@@ -102,7 +121,6 @@ For persistent packages that survive container rebuilds:
 1. **Create** a `requirements.txt` file in the repository root:
    ```
    scikit-image==0.22.0
-   seaborn>=0.13.0
    plotly
    ```
 
@@ -115,41 +133,15 @@ For persistent packages that survive container rebuilds:
 
 Now your packages will be automatically installed whenever the container is created.
 
-## Using as a template for new projects
+## TensorBoard
 
-You can use your fork as a starting point for new deep learning projects:
+To launch TensorBoard:
 
-1. **Clone** your fork:
-   ```bash
-   git clone https://github.com/<your-username>/tensorflow-GPU.git
-   ```
+1. Open the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Run **Python: Launch TensorBoard**
+3. Select the `logs/` directory when prompted
 
-2. **Rename** the directory to your new project name:
-   ```bash
-   mv tensorflow-GPU my-new-project
-   cd my-new-project
-   ```
-
-3. **Create a new repository** on GitHub for your project (don't initialize with README)
-
-4. **Update the git remote** to point to your new repository:
-   ```bash
-   git remote set-url origin https://github.com/<your-username>/my-new-project.git
-   ```
-
-5. **Push** to your new repository:
-   ```bash
-   git push -u origin main
-   ```
-
-6. **Clean up** (optional): Remove the example notebooks, then add your own code:
-   ```bash
-   rm -rf notebooks/*.ipynb
-   git add -A && git commit -m "Initial project setup"
-   git push
-   ```
-
-Now you have a fresh deep learning GPU project with the dev container configuration ready to go!
+TensorBoard will open in a new tab within VS Code. Place your training logs in the `logs/` directory.
 
 ## Keeping your fork updated
 
