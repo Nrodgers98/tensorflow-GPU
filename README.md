@@ -11,7 +11,7 @@ A ready-to-use TensorFlow environment with NVIDIA GPU support for VS Code. Desig
 | **GPU** | CUDA 12.5, cuDNN 9.1 |
 | **ML** | TensorFlow 2.16, Keras 3.3, PyTorch 2.10, Scikit-learn 1.4 |
 | **Python** | Python 3.10, NumPy 1.24, Pandas 2.2, Matplotlib 3.10 |
-| **Tools** | JupyterLab, TensorBoard (auto-starts on port 6006) |
+| **Tools** | JupyterLab, TensorBoard |
 
 Based on [NVIDIA's TensorFlow 24.06 container](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel-24-06.html).
 
@@ -24,7 +24,7 @@ tensorflow-GPU/
 ├── .devcontainer/
 │   └── devcontainer.json       # Dev container configuration
 ├── data/                       # Store datasets here
-├── logs/                       # TensorBoard logs (auto-watched)
+├── logs/                       # TensorBoard logs
 ├── models/                     # Saved model files
 ├── notebooks/
 │   ├── environment_test.ipynb  # Verify your setup
@@ -77,7 +77,13 @@ Check your GPU's compute capability: [NVIDIA CUDA GPUs](https://developer.nvidia
 
 ## TensorBoard
 
-TensorBoard starts automatically and is available at **http://localhost:6006**. Place your logs in the `logs/` directory.
+To launch TensorBoard:
+
+1. Open the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Run **Python: Launch TensorBoard**
+3. Select the `logs/` directory when prompted
+
+TensorBoard will open in a new tab within VS Code. Place your training logs in the `logs/` directory.
 
 ## Adding Python rackages
 
