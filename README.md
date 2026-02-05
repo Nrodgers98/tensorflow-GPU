@@ -64,7 +64,7 @@ Check your GPU's compute capability: [NVIDIA CUDA GPUs](https://developer.nvidia
 
 2. **Clone** your fork:
    ```bash
-   git clone https://github.com/<your-username>/tensorflow-GPU.git
+   git clone https://github.com/<your-username>/deeplearning-GPU.git
    ```
 
 3. **Open VS Code**
@@ -147,7 +147,7 @@ TensorBoard will open in a new tab within VS Code. Place your training logs in t
 
 ```bash
 # Add upstream (once)
-git remote add upstream https://github.com/gperdrizet/tensorflow-GPU.git
+git remote add upstream https://github.com/gperdrizet/deeplearning-GPU.git
 
 # Sync
 git fetch upstream
